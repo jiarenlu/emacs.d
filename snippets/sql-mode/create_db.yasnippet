@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: create
+# key: create
+# --
+DROP TABLE IF EXISTS bszb_${1:table};
+CREATE TABLE bszb_${1:$(yas/substr yas-text "[^ ]*")} (
+\`${2:column}_UNID\` INT(11) NOT NULL AUTO_INCREMENT COMMENT 'UNID',
+\`${2:$(yas/substr yas-text "[^ ]*")}_UUID\` varchar(32) NOT NULL COMMENT 'UUID',
+\`${2:$(yas/substr yas-text "[^ ]*")}_CDATE\` DATETIME DEFAULT NULL COMMENT '创建时间',
+\`${2:$(yas/substr yas-text "[^ ]*")}_UDATE\` DATETIME DEFAULT NULL COMMENT '修改时间',
+\`${2:$(yas/substr yas-text "[^ ]*")}_StATUS\` tinyint default 0 comment '状态 （0：草稿，1：正常数据，2：失效数据）',
+\`${2:$(yas/substr yas-text "[^ ]*")}_CUSR\` varchar(32) DEFAULT NULL COMMENT '申请人UUID',
+\`${2:$(yas/substr yas-text "[^ ]*")}_CUSRNAME\` varchar(50) DEFAULT NULL COMMENT '申请人姓名',
+\`${2:$(yas/substr yas-text "[^ ]*")}_DEPMANAGERUUID\` varchar(32) DEFAULT NULL COMMENT '部门经理UUID',
+\`${2:$(yas/substr yas-text "[^ ]*")}_DEPMANAGERNAME\` varchar(32) DEFAULT NULL COMMENT '部门经理姓名',
+$0
+PRIMARY KEY  (\`${2:$(yas/substr yas-text "[^ ]*")}_UNID\`,\`${2:$(yas/substr yas-text "[^ ]*")}_UUID\`)
+) ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=UTF8 COMMENT='${3:tableName}';

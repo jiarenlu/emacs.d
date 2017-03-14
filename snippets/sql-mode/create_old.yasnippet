@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: create_new
+# key: create_new
+# --
+DROP TABLE IF EXISTS bszb_${1:table};
+CREATE TABLE bszb_${1:$(yas/substr yas-text "[^ ]*")} (
+  \`unid\` bigint(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'unid物理主键',
+  \`uuid\` varchar(32) NOT NULL COMMENT 'uuid逻辑主键',
+  \`create_time\` datetime NOT NULL COMMENT '创建时间',
+  \`create_name\` varchar(50) DEFAULT NULL COMMENT '创建人',
+  \`update_time\` datetime NOT NULL COMMENT '更新时间',
+  \`update_name\` varchar(50) DEFAULT NULL COMMENT '更新人',
+  \`remark\` varchar(200) DEFAULT NULL COMMENT '备注',
+  \`is_del\` tinyint(1) unsigned NOT NULL DEFAULT '0' COMMENT '是否删除：1：是；0：否；',
+  $0
+  PRIMARY KEY (\`unid\`,\`uuid\`)
+) ENGINE=INNODB AUTO_INCREMENT=0 DEFAULT CHARSET=UTF8 COMMENT='${2:tableName}';

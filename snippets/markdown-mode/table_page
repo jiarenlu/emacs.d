@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: table_page
+# key: table_page
+# --
+|参数名称|说明|类型|是否必需|
+|---|---|---|---|
+|pageNo|单元页面|int|否|
+|pageSize|页面大小|int|否|

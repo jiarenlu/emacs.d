@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: method() {..}
+# key: fn
+# contributor: Chen Bin <chenbin DOT sh AT gmail>
+# --
+${1:name}($0) {
+  console.log('${1:$(yas/substr yas-text "[^ ]*")} called');
+}

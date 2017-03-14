@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: json_info
+# key: json_info
+# --
+
+{
+ "message":"",
+  "statusCode": 200,
+  "data": {
+     "uuid": "A62A35E14FF748C9AAD701EE0828AD67",
+     "remark": "XXXXXX",
+  }
+}

@@ -1,0 +1,6 @@
+# key: table_uuid
+# name: table_uuid
+# --
+|参数名称|说明|类型|是否必需|
+|---|---|---|---|
+|uuid|uuid|String|是|

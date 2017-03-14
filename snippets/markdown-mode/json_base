@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: json_base
+# key: json_base
+# --
+\`\`\` josn
+{
+"message": "${1:message}",
+"statusCode": 200,
+"data": null
+}
+\`\`\`

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: item_base
+# key: item_base
+# --
+  * 请求参数
+  * 返回参数
+  * 举例
