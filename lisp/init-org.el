@@ -344,6 +344,33 @@ typical word processor."
     (define-key org-mode-map (kbd "M-h") nil)
     (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
 
+
+(require 'ox-latex)
+(add-to-list 'org-latex-classes
+             '("ctexart"
+               "\\documentclass[UTF8]{ctexart}
+        \\usepackage{amsmath,latexsym,amssymb,mathrsfs,pifont}
+        \\usepackage[T1]{fontenc}
+        \\usepackage{fixltx2e}
+        \\usepackage{graphicx}
+        \\usepackage{subfig}
+        \\usepackage{grffile}
+        \\usepackage{longtable}
+        \\usepackage{wrapfig}
+        \\usepackage{rotating}
+         \\usepackage[colorlinks=true]{hyperref}
+        \\tolerance=1000
+        [NO-DEFAULT-PACKAGES]
+        [NO-PACKAGES]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+
+
+
 (after-load 'org
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -363,6 +390,24 @@ typical word processor."
      (,(if (locate-library "ob-sh") 'sh 'shell) . t)
      (sql . nil)
      (sqlite . t))))
+
+(after-load 'org
+
+  (require 'org-crypt)
+  ;; org-mode 設定
+  ;; 當被加密的部份要存入硬碟時，自動加密回去
+  (org-crypt-use-before-save-magic)
+  ;; 設定要加密的 tag 標籤為 secret
+  (setq org-crypt-tag-matcher "secret")
+  ;; 避免 secret 這個 tag 被子項目繼承 造成重複加密
+  ;; (但是子項目還是會被加密喔)
+  (setq org-tags-exclude-from-inheritance (quote ("secret")))
+  ;; 用於加密的 GPG 金鑰
+  ;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
+  (setq org-crypt-key "6DF1ABB0"))
+
+
+
 
 
 (provide 'init-org)
