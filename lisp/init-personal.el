@@ -29,9 +29,9 @@
 (unless (server-running-p)
   (server-start))
 
-(when (maybe-map-paredit-newline 'chinese-fonts-setup)
-  (after-load 'chinese-fonts-setup
-    (chinese-fonts-setup-enable)))
+(require-package 'chinese-fonts-setup)
+(require 'chinese-fonts-setup)
+(chinese-fonts-setup-enable)
 
 ;;同时编辑多个区域的插件
 ;; (require-package 'iedit)
@@ -77,6 +77,7 @@
   (global-set-key (kbd "C-|") 'er/contract-region))
 
 (setq ispell-extra-args '("--lang=en_US"))
+
 
 
 (windmove-default-keybindings 'super)
