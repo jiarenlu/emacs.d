@@ -84,14 +84,25 @@ typical word processor."
 
 ;;; Capturing
 
+;; (global-set-key (kbd "C-c c") 'org-capture)
+
+;; (setq org-capture-templates
+;;       `(("t" "todo" entry (file "")  ; "" => org-default-notes-file
+;;          "* NEXT %?\n%U\n" :clock-resume t)
+;;         ("n" "note" entry (file "")
+;;          "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
+;;         ))
+
 (global-set-key (kbd "C-c c") 'org-capture)
 
 (setq org-capture-templates
-      `(("t" "todo" entry (file "")  ; "" => org-default-notes-file
-         "* NEXT %?\n%U\n" :clock-resume t)
-        ("n" "note" entry (file "")
+      `(("t" "todo" entry (file "~/data/org-model/capture.org")  ; "" => org-default-notes-file
+         "* TODO %?\n%U\n" :clock-resume t)
+        ("n" "note" entry (file "~/data/org-model/capture.org")
          "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
-        ))
+        )
+      )
+
 
 
 
@@ -344,7 +355,7 @@ typical word processor."
     (define-key org-mode-map (kbd "M-h") nil)
     (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
 
-
+;; org-latex
 (require 'ox-latex)
 (add-to-list 'org-latex-classes
              '("ctexart"
@@ -369,6 +380,17 @@ typical word processor."
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 
+;; org-mobile
+(setq org-directory "~/data/org-model")
+;;(setq org-mobile-files (list "~/data/org-model/plan.org"))
+(setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/index.org")
+(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+
+
+;; org-plantuml
+(setq org-plantuml-jar-path
+      (expand-file-name "~/.emacs.d/lisp/plugins/plantuml.jar"))
+
 
 
 (after-load 'org
@@ -388,6 +410,7 @@ typical word processor."
      (ruby . t)
      (screen . nil)
      (,(if (locate-library "ob-sh") 'sh 'shell) . t)
+     (plantuml . t)
      (sql . nil)
      (sqlite . t))))
 
