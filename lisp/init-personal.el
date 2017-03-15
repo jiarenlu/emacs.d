@@ -29,9 +29,11 @@
 (unless (server-running-p)
   (server-start))
 
-(require-package 'chinese-fonts-setup)
-(require 'chinese-fonts-setup)
-(chinese-fonts-setup-enable)
+
+(when (maybe-require-package 'chinese-fonts-setup)
+  (require-package 'chinese-fonts-setup)
+  (require 'chinese-fonts-setup)
+  (chinese-fonts-setup-enable))
 
 ;;同时编辑多个区域的插件
 ;; (require-package 'iedit)

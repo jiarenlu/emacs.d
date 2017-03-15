@@ -10,6 +10,7 @@
 
 ;; Various preferences
 (setq org-log-done t
+      org-startup-indented t
       org-edit-timestamp-down-means-later t
       org-archive-mark-done nil
       org-hide-emphasis-markers t

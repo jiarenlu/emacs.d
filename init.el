@@ -120,13 +120,16 @@
 (require 'init-ledger)
 
 ;; user config
-(require 'init-cc-mode)
-(require 'init-gud)
-(require 'init-gtags)
+
+;; TODO finished cc and gtags
+;;(require 'init-cc-mode)
+;;(require 'init-gud)
+;;(require 'init-gtags)
 (require 'init-yasnippet)
 (require 'init-emmet)
 (require 'init-latex)
 (require 'init-personal)
+
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
