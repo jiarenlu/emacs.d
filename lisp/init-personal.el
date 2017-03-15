@@ -29,10 +29,9 @@
 (unless (server-running-p)
   (server-start))
 
-(require-package 'chinese-fonts-setup)
-(require 'chinese-fonts-setup)
-
-(chinese-fonts-setup-enable)
+(when (maybe-map-paredit-newline 'chinese-fonts-setup)
+  (after-load 'chinese-fonts-setup
+    (chinese-fonts-setup-enable)))
 
 ;;同时编辑多个区域的插件
 ;; (require-package 'iedit)
@@ -73,12 +72,18 @@
 ;; (setq auto-save-slient t)       ;; 自动保存的时候静悄悄的， 不要打扰我
 
 ;; 将所选区域缩小到其先前的带大小的快捷键
-(require 'expand-region)
-(global-set-key (kbd "C-|") 'er/contract-region)
+
+(after-load 'expand-region
+  (global-set-key (kbd "C-|") 'er/contract-region))
 
 (setq ispell-extra-args '("--lang=en_US"))
 
 
 (windmove-default-keybindings 'super)
+
+(when (maybe-require-package 'keyfreq)
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1))
+
 
 (provide 'init-personal)
