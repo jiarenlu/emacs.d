@@ -16,9 +16,6 @@
 (setq default-frame-alist
       '((cursor-color . "#ffffff")))
 
-(scroll-bar-mode -1)
-(delete-selection-mode 1)
-(global-linum-mode -1)
 ;;; projectile default keybinding
 
 (after-load 'projectile
@@ -80,6 +77,9 @@
 
 (setq ispell-extra-args '("--lang=en_US"))
 
+(after-load 'company
+  (setq-default company-minimum-prefix-length 2)
+  (setq-default company-idle-delay 0.1))
 
 
 (windmove-default-keybindings 'super)

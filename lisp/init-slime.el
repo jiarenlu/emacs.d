@@ -20,7 +20,7 @@
   (setq slime-net-coding-system 'utf-8-unix)
   (let ((extras (when (require 'slime-company nil t)
                   '(slime-company))))
-    (slime-setup (append '(slime-repl slime-fuzzy slime-fancy) extras)))
+    (slime-setup (append '(slime-fancy slime-repl slime-fuzzy) extras)))
   (setq slime-complete-symbol*-fancy t)
   (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
   (add-hook 'slime-mode-hook 'sanityinc/slime-setup))
