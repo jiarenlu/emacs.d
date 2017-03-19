@@ -16,6 +16,7 @@
   (set-up-slime-hippie-expand))
 
 (after-load 'slime
+  (require 'slime-autoloads)
   (setq slime-protocol-version 'ignore)
   (setq slime-net-coding-system 'utf-8-unix)
   (let ((extras (when (require 'slime-company nil t)

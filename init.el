@@ -120,7 +120,7 @@
 (require 'init-ledger)
 
 ;; user config
-
+(require 'init-search)
 ;; TODO finished cc and gtags
 ;;(require 'init-cc-mode)
 ;;(require 'init-gud)

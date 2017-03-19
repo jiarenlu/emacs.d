@@ -16,6 +16,17 @@
 (setq default-frame-alist
       '((cursor-color . "#ffffff")))
 
+;; 选中替换
+;; (setq-default delete-selection-mode t)
+
+;; 禁用滚动条
+;; (setq-default scroll-bar-mode nil)
+
+;; 删除多余空白插件
+(when (maybe-require-package 'hungry-delete)
+  (require 'hungry-delete)
+  (global-hungry-delete-mode))
+
 ;;; projectile default keybinding
 
 (after-load 'projectile
