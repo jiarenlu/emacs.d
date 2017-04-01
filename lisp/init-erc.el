@@ -1,5 +1,3 @@
-(setq erc-autojoin-channels-alist '(("freenode.net" "#opensuse-cn" "#lisp")))
-
 ;;; prelude-erc.el --- Emacs Prelude: ERC mode configuration.
 ;;
 ;; Copyright © 2011-2017 Bozhidar Batsov
@@ -134,7 +132,7 @@ that can occur between two notifications.  The default is
     (with-current-buffer buffer
       (erc-quit-server "Asta la vista"))))
 
-(setq erc-autojoin-channels-alist '(("freenode.net" "#opensuse-cn" "#lisp")))
+(setq erc-autojoin-channels-alist '(("freenode.net" "#opensuse-cn" "#lisp" "#fedora-zh")))
 
 (provide 'init-erc)
 
