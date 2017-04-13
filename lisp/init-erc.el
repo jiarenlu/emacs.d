@@ -132,7 +132,7 @@ that can occur between two notifications.  The default is
     (with-current-buffer buffer
       (erc-quit-server "Asta la vista"))))
 
-(setq erc-autojoin-channels-alist '(("freenode.net" "#opensuse-cn" "#lisp" "#fedora-zh")))
+;; erc-autojoin-channels-alist  custom setting
 
 (provide 'init-erc)
 
