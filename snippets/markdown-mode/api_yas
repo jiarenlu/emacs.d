@@ -1,0 +1,140 @@
+# key: api_yas
+# name: api_yas
+# --
+
+## 获取${2:name}列表 ##
+
+    GET /base/${1:key}/list
+
+说明: 需要权限 user:view
+
+  * 请求参数
+
+|参数名称|说明|类型|是否必需|
+|---|---|---|---|
+|pageNo|单元页面|int|否|
+|pageSize|页面大小|int|否|
+
+
+  * 返回参数
+
+|参数名称|说明|类型|是否必需|
+|---|---|---|---|
+|uuid|uuid|String|否|
+|remark|备注|String|否|
+
+
+  * 举例
+
+``` json
+{
+  "message": "",
+  "statusCode": 200,
+  "data": {
+    "offset": 0,
+    "limit": 15,
+    "pageNo": 1,
+    "pageSize": 15,
+    "result": [
+      {
+        "uuid": "59b2a709d29a44f0960365a439d84113",
+        "remark": null,
+      }
+    ],
+    "totalCount": 0,
+    "totalPages": 0,
+    "first": 1
+  }
+}
+```
+
+## ${2:$(yas/substr yas-text "[^ ]*")}明细 ##
+
+    GET /base/${1:$(yas/substr yas-text "[^ ]*")}/info
+
+说明: 需要权限 user:view
+
+  * 请求参数
+
+|参数名称|说明|类型|是否必需|
+|---|---|---|---|
+|uuid|uuid|String|是|
+
+  * 返回参数
+
+|参数名称|说明|类型|是否必需|
+|---|---|---|---|
+|uuid|uuid|String|是|
+|remark|备注|String|是|
+
+
+  * 举例
+
+``` json
+{
+  "message": "",
+  "statusCode": 200,
+  "data": {
+    "offset": 0,
+    "limit": 0,
+    "pageNo": 1,
+    "pageSize": 15,
+    "result": [
+      {
+        "uuid": "69AC56B28E5E4889AA9F46919CD00113",
+        "remark": "一户通/批量代收",
+
+      }
+    ]
+  }
+}
+```
+
+## ${2:$(yas/substr yas-text "[^ ]*")}保存 ##
+
+    POST /base/${1:$(yas/substr yas-text "[^ ]*")}/save
+
+说明: 需要权限 user:create
+
+  * 请求参数
+
+|参数名称|说明|类型|是否必需|
+|---|---|---|---|
+|uuid|uuid|String|否|
+|remark|备注|String|否|
+
+
+  * 返回参数
+
+``` json
+{
+  "message": "保存账户成功",
+  "statusCode": 200,
+  "data": null
+}
+```
+
+---
+
+## ${2:$(yas/substr yas-text "[^ ]*")}删除 ##
+
+    GET /base/${1:$(yas/substr yas-text "[^ ]*")}/delete
+
+说明: 需要权限 user:delete
+
+  * 请求参数
+
+|参数名称|说明|类型|是否必需|
+|---|---|---|---|
+|uuid|uuid|String|是|
+
+  * 返回参数
+
+
+``` json
+{
+"message": "删除帐号成功",
+"statusCode": 200,
+"data": null
+}
+```
