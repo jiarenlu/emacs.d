@@ -82,6 +82,7 @@
   (define-key inferior-js-minor-mode-map "\C-cb" 'js-send-buffer)
   (define-key inferior-js-minor-mode-map "\C-c\C-b" 'js-send-buffer-and-go)
   (define-key inferior-js-minor-mode-map "\C-cl" 'js-load-file-and-go)
+  (define-key inferior-js-minor-mode-map "\C-cr" 'js-send-region)
 
   (define-minor-mode inferior-js-keys-mode
     "Bindings for communicating with an inferior js interpreter."
