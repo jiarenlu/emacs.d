@@ -389,30 +389,31 @@ typical word processor."
 
 
 ;; org-plantuml
-;; (setq org-plantuml-jar-path
-;;       (expand-file-name "~/.emacs.d/lisp/plugins/plantuml.jar"))
+(setq org-plantuml-jar-path
+      (expand-file-name "~/.emacs.d/lisp/plugins/plantuml.jar"))
 
 
-;; (after-load 'org
-;;   (org-babel-do-load-languages
-;;    'org-babel-load-languages
-;;    `((R . t)
-;;      (ditaa . t)
-;;      (dot . t)
-;;      (emacs-lisp . t)
-;;      (gnuplot . t)
-;;      (haskell . nil)
-;;      (latex . t)
-;;      (ledger . t)
-;;      (ocaml . nil)
-;;      (octave . t)
-;;      (python . t)
-;;      (ruby . t)
-;;      (screen . nil)
-;;      (,(if (locate-library "ob-sh") 'sh 'shell) . t)
-;;      (plantuml . t)
-;;      (sql . nil)
-;;      (sqlite . t))))
+(after-load 'org
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   `(
+     ;; (R . t)
+     (ditaa . t)
+     (dot . t)
+     (emacs-lisp . t)
+     (gnuplot . t)
+     (haskell . nil)
+     (latex . t)
+     (ledger . t)
+     (ocaml . nil)
+     (octave . t)
+     (python . t)
+     (ruby . t)
+     (screen . nil)
+     (,(if (locate-library "ob-sh") 'sh 'shell) . t)
+     (plantuml . t)
+     (sql . nil)
+     (sqlite . t))))
 
 (after-load 'org
 
