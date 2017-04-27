@@ -434,5 +434,8 @@ typical word processor."
 (after-load 'org
   (require-package 'ox-ioslide))
 
+(after-load 'ox-ioslide
+  (require 'ox-ioslide-helper))
+
 
 (provide 'init-org)
