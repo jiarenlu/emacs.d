@@ -8,6 +8,7 @@
    (quote
     ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" default)))
  '(delete-selection-mode t)
+ '(erc-autojoin-channels-alist (quote (("irc.freenode.net" "#lisp" "#opensuse-cn"))))
  '(org-agenda-files
    (quote
     ("~/data/org-model/projects.org" "~/data/org-model/plan.org")))
