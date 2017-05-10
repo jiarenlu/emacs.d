@@ -2,6 +2,8 @@
 (maybe-require-package 'js2-mode)
 (maybe-require-package 'coffee-mode)
 
+(maybe-require-package 'tern)
+
 (defcustom preferred-javascript-mode
   (first (remove-if-not #'fboundp '(js2-mode js-mode)))
   "Javascript mode to use for .js files."
@@ -38,6 +40,13 @@
   (add-hook 'js2-mode-hook 'sanityinc/disable-js2-checks-if-flycheck-active)
 
   (add-hook 'js2-mode-hook (lambda () (setq mode-name "JS2")))
+
+  (when (maybe-require-package 'company-tern)
+    (add-hook 'js-mode-hook
+              '(lambda ()
+                 (tern-mode 1)
+                 (setq company-tooltip-align-annotations t)
+                 (add-to-list 'company-backends 'company-tern))))
 
   (after-load 'js2-mode
     (js2-imenu-extras-setup)))
