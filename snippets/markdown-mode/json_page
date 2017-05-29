@@ -2,7 +2,7 @@
 # name: json_page
 # --
 
-\`\`\`  json
+\`\`\` json
 {
  "message":"",
   "statusCode": 200,
@@ -14,7 +14,7 @@
     "result": [{
          "uuid": "69AC56B28E5E4889AA9F46919CD00113",
          "remark": "一户通/批量代收",
-
+         $0
       }],
     "totalCount": 0,
     "totalPages": 0,
