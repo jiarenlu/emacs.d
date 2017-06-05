@@ -10,4 +10,6 @@
 (setq yas/root-directory "~/.emacs.d/snippets")
 (yas/load-directory yas/root-directory)
 
+(setf yas-indent-line 'fixed)
+
 (provide 'init-yasnippet)
