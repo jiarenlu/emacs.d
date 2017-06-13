@@ -2,11 +2,11 @@
 # name: table_base
 # key: table_base
 # --
-|unid|unid|Interge|是|
-|uuid|uuid|String|是|
-|createTime|创建时间|String|是|
-|createName|创建人|String|是|
-|updateTime|更新时间|String|是|
-|updateName|更新人|String|是|
-|remark|备注|String|是|
+|unid|unid|interge|是|
+|uuid|uuid|string|是|
+|createTime|创建时间|string|是|
+|createName|创建人|string|是|
+|updateTime|更新时间|string|是|
+|updateName|更新人|string|是|
+|remark|备注|string|是|
 |isDel|是否删除：1：是；0：否；|boolean|是|
