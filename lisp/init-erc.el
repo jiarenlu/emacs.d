@@ -51,6 +51,7 @@
 ;; Kill buffers for server messages after quitting the server
 (setq erc-kill-server-buffer-on-quit t)
 
+(setq erc-autojoin-mode t)
 ;; open query buffers in the current window
 (setq erc-query-display 'buffer)
 
