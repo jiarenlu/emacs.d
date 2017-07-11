@@ -46,7 +46,7 @@
               '(lambda ()
                  (tern-mode 1)
                  (setq company-tooltip-align-annotations t)
-                 (add-to-list 'company-backends 'company-tern))))
+                 (sanityinc/local-push-company-backend 'company-tern))))
 
   (after-load 'js2-mode
     (js2-imenu-extras-setup)))
