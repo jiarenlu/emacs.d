@@ -122,7 +122,7 @@
 ;; user config
 (require 'init-search)
 ;; TODO finished cc and gtags
-;;(require 'init-cc-mode)
+(require 'init-cc-mode)
 ;;(require 'init-gud)
 ;;(require 'init-gtags)
 (require 'init-yasnippet)
