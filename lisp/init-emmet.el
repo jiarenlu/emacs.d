@@ -8,7 +8,7 @@
 
 (after-load 'emmet-mode
   (setq emmet-move-cursor-between-quotes t)
-  (setq emmet-expand-jsx-className? t)
+  (setq emmet-expand-jsx-className? nil)
   (setq emmet-self-closing-tag-style " /"))
 
 (provide 'init-emmet)
