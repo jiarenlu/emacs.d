@@ -124,7 +124,7 @@
 ;; TODO finished cc and gtags
 (require 'init-cc-mode)
 ;;(require 'init-gud)
-;;(require 'init-gtags)
+(require 'init-gtags)
 (require 'init-yasnippet)
 (require 'init-emmet)
 (require 'init-latex)
