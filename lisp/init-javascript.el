@@ -45,6 +45,8 @@
     (add-hook 'js-mode-hook
               '(lambda ()
                  (tern-mode 1)
+                 (define-key tern-mode-keymap (kbd "M-.") nil)
+                 (define-key tern-mode-keymap (kbd "M-,") nil)
                  (setq company-tooltip-align-annotations t)
                  (sanityinc/local-push-company-backend 'company-tern))))
 
