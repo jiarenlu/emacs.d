@@ -44,10 +44,11 @@
   (server-start))
 
 
-(when (maybe-require-package 'chinese-fonts-setup)
-  (require-package 'chinese-fonts-setup)
-  (require 'chinese-fonts-setup)
-  (chinese-fonts-setup-enable))
+(when (maybe-require-package 'cnfonts)
+  ;; 让 cnfonts 随着 Emacs 自动生效。
+  (cnfonts-enable)
+  ;; 让 spacemacs mode-line 中的 Unicode 图标正确显示。
+  (cnfonts-set-spacemacs-fallback-fonts))
 
 ;;同时编辑多个区域的插件
 ;; (require-package 'iedit)
