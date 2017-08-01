@@ -13,17 +13,17 @@
 ;; (curchg-default-cursor-color )
 ;; (setq evil-default-cursor "#ffffff")
 ;; (set-cursor-color "#ffffff")
+
 (setq default-frame-alist
       '((cursor-color . "#ffffff")))
 
 (add-hook 'after-init-hook
-          (lambda () (progn
-                  ;; 禁用滚动条
-                  (set-scroll-bar-mode nil))))
+          (lambda ()
+            ;; 禁用滚动条
+            (set-scroll-bar-mode nil)
+            ;; 选中替换
+            (delete-selection-mode t)))
 
-
-;; 选中替换
-;; (setq-default delete-selection-mode t)
 
 ;; 禁用滚动条
 ;; (setq-default scroll-bar-mode nil)
@@ -37,12 +37,6 @@
 
 (after-load 'projectile
   (define-key projectile-mode-map (kbd "s-p") 'projectile-command-map))
-
-;; If I'm running emacs, then I want it to be a server
-(require 'server)
-(unless (server-running-p)
-  (server-start))
-
 
 (when (maybe-require-package 'cnfonts)
   ;; 让 cnfonts 随着 Emacs 自动生效。
@@ -64,7 +58,6 @@
 
 ;;禁止 Emacs 自动生成备份文件
 (setq make-backup-files nil)
-
 
 ;; (setq auto-save-default nil)
 
@@ -93,7 +86,7 @@
 (after-load 'expand-region
   (global-set-key (kbd "C-|") 'er/contract-region))
 
-(setq ispell-extra-args '("--lang=en_US"))
+(setq ispell-extra-args '(" --lang=en_US"))
 
 (after-load 'company
   (setq-default company-minimum-prefix-length 2)
