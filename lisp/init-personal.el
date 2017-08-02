@@ -100,8 +100,8 @@
   (keyfreq-autosave-mode 1))
 
 (when (maybe-require-package 'define-word)
-  (global-set-key (kbd "C-c d") 'define-word-at-point)
-  (global-set-key (kbd "C-c D") 'define-word))
+  (global-set-key (kbd "C-c C-d") 'define-word-at-point)
+  (global-set-key (kbd "C-c C-S-d") 'define-word))
 
 
 (provide 'init-personal)
