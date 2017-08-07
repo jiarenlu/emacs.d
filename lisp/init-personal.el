@@ -86,7 +86,6 @@
 (after-load 'expand-region
   (global-set-key (kbd "C-|") 'er/contract-region))
 
-(setq ispell-extra-args '(" --lang=en_US"))
 
 (after-load 'company
   (setq-default company-minimum-prefix-length 2)
