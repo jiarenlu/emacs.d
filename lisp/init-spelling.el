@@ -1,7 +1,9 @@
 (require 'ispell)
 
-(setq ispell-program-name "aspell" ; use aspell instead of ispell
-      ispell-extra-args '("--sug-mode=ultra --lang=en_US"))
+;; use apsell as ispell backend
+(setq-default ispell-program-name "aspell")
+;; use American English as ispell default dictionary
+(ispell-change-dictionary "american" t)
 
 (when (executable-find ispell-program-name)
   (require 'init-flyspell))
