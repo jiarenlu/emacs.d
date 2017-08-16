@@ -3,8 +3,7 @@
             (lambda () (progn
                     ;;company-c-headers
                     (when (maybe-require-package 'company-c-headers)
-                      (sanityinc/local-push-company-backend #'company-c-headers)
-                      (add-to-list 'company-c-headers-path-system '"/usr/include/c++/4.8/"))
+                      (sanityinc/local-push-company-backend #'company-c-headers))
                     ;;company-clang
                     (sanityinc/local-push-company-backend #'company-clang)
                     (setq company-backends (delete 'company-semantic company-backends))))))
