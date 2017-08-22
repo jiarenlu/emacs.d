@@ -101,7 +101,10 @@
 (require 'init-ruby-mode)
 (require 'init-rails)
 (require 'init-sql)
-(require-package 'toml-mode)
+(require 'init-rust)
+(maybe-require-package 'toml-mode)
+(require 'init-docker)
+(maybe-require-package 'terraform-mode)
 
 (require 'init-paredit)
 (require 'init-lisp)
