@@ -1,7 +1,9 @@
 ;; org setting
 (setq org-default-notes-file "~/data/org-model/capture.org"
-      org-directory "~/data/org-model/"
-      exec-path-from-shell-arguments '("-i"))
+      org-directory "~/data/org-model/")
+
+;; exec-path setting
+(setq exec-path-from-shell-arguments '("-i"))
 
 ;; org mobile
 ;;(setq org-mobile-files (list "~/data/org-model/plan.org"))
