@@ -103,9 +103,9 @@ typical word processor."
 (global-set-key (kbd "C-c c") 'org-capture)
 
 (setq org-capture-templates
-      `(("t" "todo" entry (file "~/data/org-model/capture.org")  ; "" => org-default-notes-file
+      `(("t" "todo" entry (file "")  ; "" => org-default-notes-file
          "* TODO %?\n%U\n" :clock-resume t)
-        ("n" "note" entry (file "~/data/org-model/capture.org")
+        ("n" "note" entry (file "")
          "* %? :NOTE:\n%U\n%a\n" :clock-resume t)
         )
       )
@@ -392,11 +392,6 @@ typical word processor."
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 
-;; org-mobile
-(setq org-directory "~/data/org-model")
-;;(setq org-mobile-files (list "~/data/org-model/plan.org"))
-(setq org-mobile-inbox-for-pull "~/Dropbox/Apps/MobileOrg/index.org")
-(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
 
 
 ;; org-plantuml
