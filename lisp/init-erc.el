@@ -52,7 +52,7 @@
   (setq erc-autojoin-mode t)
   ;; erc-autojoin-channels-alist  custom setting
   (setq erc-autojoin-channels-alist
-        '(("freenode.net" "#lisp" "#opensuse-cn" "#fedora-zh")))
+        '(("freenode.net" "#lisp" "#opensuse-cn" "#fedora-zh" "#emacs")))
 
   ;; open query buffers in the current window
   (setq erc-query-display 'buffer)
