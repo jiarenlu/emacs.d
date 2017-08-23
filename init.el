@@ -134,6 +134,7 @@
 (require 'init-latex)
 (require 'init-personal)
 (require 'init-dict)
+(require 'init-erc)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)

@@ -35,8 +35,6 @@
 
 (require 'erc)
 (after-load 'erc
-
-
   ;; Interpret mIRC-style color commands in IRC chats
   (setq erc-interpret-mirc-color t)
 
@@ -94,35 +92,34 @@ that can occur between two notifications.  The default is
         (push (cons nick cur-time) erc-notify-nick-alist)
         t))))
 
+(require 'erc-autoaway)
+(after-load 'erc-autoaway
+  ;; autoaway setup
+  (setq erc-auto-discard-away t)
+  (setq erc-autoaway-idle-seconds 600)
+  (setq erc-autoaway-use-emacs-idle t)
+  ;; utf-8 always and forever
+  (setq erc-server-coding-system '(utf-8 . utf-8)))
 
 
-(when (maybe-require-package 'erc-autoaway)
-  (after-load 'erc-autoaway
-    ;; autoaway setup
-    (setq erc-auto-discard-away t)
-    (setq erc-autoaway-idle-seconds 600)
-    (setq erc-autoaway-use-emacs-idle t)
-    ;; utf-8 always and forever
-    (setq erc-server-coding-system '(utf-8 . utf-8))))
+(require 'erc-spelling)
+(after-load 'erc-spelling
+  ;; enable spell checking
+  ;; set different dictionaries by different servers/channels
+  ;;(setq erc-spelling-dictionaries '(("#emacs" "american")))
+  (when *spell-check-support-enabled*
+    (erc-spelling-mode 1)))
 
-(when (maybe-require-package 'erc-spelling)
-  (after-load 'erc-spelling
-    ;; enable spell checking
-    ;; set different dictionaries by different servers/channels
-    ;;(setq erc-spelling-dictionaries '(("#emacs" "american")))
-    (when *spell-check-support-enabled*
-      (erc-spelling-mode 1))))
-
-(when (maybe-require-package 'erc-log)
-  (after-load 'erc-log
-    ;; logging
-    (setq erc-log-channels-directory "~/.erc/logs/")
-    (if (not (file-exists-p erc-log-channels-directory))
-        (mkdir erc-log-channels-directory t))
-    ;; FIXME - this advice is wrong and is causing problems on Emacs exit
-    ;; (defadvice save-buffers-kill-emacs (before save-logs (arg) activate)
-    ;;   (save-some-buffers t (lambda () (when (eq major-mode 'erc-mode) t))))
-    (setq erc-save-buffer-on-part t)))
+(require 'erc-log)
+(after-load 'erc-log
+  ;; logging
+  (setq erc-log-channels-directory "~/.erc/logs/")
+  (if (not (file-exists-p erc-log-channels-directory))
+      (mkdir erc-log-channels-directory t))
+  ;; FIXME - this advice is wrong and is causing problems on Emacs exit
+  ;; (defadvice save-buffers-kill-emacs (before save-logs (arg) activate)
+  ;;   (save-some-buffers t (lambda () (when (eq major-mode 'erc-mode) t))))
+  (setq erc-save-buffer-on-part t))
 
 (defun start-irc ()
   "Connect to IRC."
@@ -143,8 +140,6 @@ that can occur between two notifications.  The default is
     (message "Server buffer: %s" (buffer-name buffer))
     (with-current-buffer buffer
       (erc-quit-server "Asta la vista"))))
-
-
 
 (provide 'init-erc)
 
