@@ -1,6 +1,7 @@
 (when (maybe-require-package 'ivy)
   (after-load 'ivy
     (setq-default ivy-use-virtual-buffers t
+                  ivy-mode t
                   ivy-virtual-abbreviate 'fullpath
                   ivy-count-format ""
                   projectile-completion-system 'ivy
