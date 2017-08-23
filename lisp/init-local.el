@@ -14,6 +14,10 @@
 ;; python
 (setq python-shell-interpreter "python3")
 
+;; erc autojoin
+(setq erc-autojoin-channels-alist
+      '(("freenode.net" "#lisp" "#opensuse-cn" "#fedora-zh" "#emacs")))
+
 
 
 
