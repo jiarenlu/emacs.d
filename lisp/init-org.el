@@ -438,10 +438,8 @@ typical word processor."
 
 
 (after-load 'org
-  (require-package 'ox-ioslide))
-
-(after-load 'ox-ioslide
-  (require 'ox-ioslide-helper))
+  (when (maybe-require-package 'ox-ioslide)
+    (require 'ox-ioslide-helper)))
 
 
 (provide 'init-org)
