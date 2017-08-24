@@ -396,7 +396,7 @@ typical word processor."
 
 ;; org-plantuml
 (setq org-plantuml-jar-path
-      (expand-file-name "~/.emacs.d/lisp/plugins/plantuml.jar"))
+      (expand-file-name "./site-lisp/plugins/plantuml.jar" user-emacs-directory))
 
 
 (after-load 'org
