@@ -127,7 +127,7 @@
 
 ;; user config
 (require 'init-search)
-;; TODO finished cc and gtags
+;; cc and gtags
 (require 'init-cc-mode)
 ;;(require 'init-gud)
 (require 'init-gtags)

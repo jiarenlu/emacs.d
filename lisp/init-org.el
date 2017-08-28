@@ -327,7 +327,28 @@ typical word processor."
 (require-package 'org-pomodoro)
 (setq org-pomodoro-keep-killed-pomodoro-time t)
 (after-load 'org-agenda
-  (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro))
+  (define-key org-agenda-mode-map (kbd "P") 'org-pomodoro)
+
+  (defun notify-send (title message)
+    (call-process "notify-send"
+                  nil 0 nil
+                  title
+                  message))
+
+  (add-hook 'org-pomodoro-finished-hook
+            (lambda ()
+              (notify-send "Pomodoro completed!" "Time for a break.")))
+  (add-hook 'org-pomodoro-break-finished-hook
+            (lambda ()
+              (notify-send "Pomodoro Short Break Finished" "Ready for Another?")))
+  (add-hook 'org-pomodoro-long-break-finished-hook
+            (lambda ()
+              (notify-send "Pomodoro Long Break Finished" "Ready for Another?")))
+  (add-hook 'org-pomodoro-killed-hook
+            (lambda ()
+              (notify-send "Pomodoro Killed" "One does not simply kill a pomodoro!")))
+
+  )
 
 
 ;; ;; Show iCal calendars in the org agenda
