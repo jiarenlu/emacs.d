@@ -48,6 +48,15 @@
       (unless (file-exists-p org-ditaa-jar-path)
         (sanityinc/grab-ditaa url jar-name)))))
 
+(after-load 'ob-plantuml
+  (let ((jar-name "plantuml.jar")
+        (url "https://phoenixnap.dl.sourceforge.net/project/plantuml/plantuml.jar"))
+    (setq org-plantuml-jar-path (expand-file-name jar-name (file-name-directory user-init-file)))
+    (unless (file-exists-p org-plantuml-jar-path)
+      (url-copy-file url org-plantuml-jar-path))))
+
+
+
 
 
 (maybe-require-package 'writeroom-mode)
@@ -405,10 +414,6 @@ typical word processor."
 
 
 
-;; org-plantuml
-(setq org-plantuml-jar-path
-      (expand-file-name "./site-lisp/plugins/plantuml.jar" user-emacs-directory))
-
 
 (after-load 'org
   (org-babel-do-load-languages
@@ -424,11 +429,11 @@ typical word processor."
      (ledger . t)
      (ocaml . nil)
      (octave . t)
+     (plantuml . t)
      (python . t)
      (ruby . t)
      (screen . nil)
      (,(if (locate-library "ob-sh") 'sh 'shell) . t)
-     (plantuml . t)
      (sql . nil)
      (sqlite . t))))
 
