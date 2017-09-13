@@ -388,10 +388,11 @@ typical word processor."
     (define-key org-mode-map (kbd "C-c g") 'org-mac-grab-link)))
 
 ;; org-latex
-(require 'ox-latex)
-(add-to-list 'org-latex-classes
-             '("ctexart"
-               "\\documentclass[UTF8]{ctexart}
+(after-load 'org
+  (require 'ox-latex)
+  (add-to-list 'org-latex-classes
+               '("ctexart"
+                 "\\documentclass[UTF8]{ctexart}
         \\usepackage{amsmath,latexsym,amssymb,mathrsfs,pifont}
         \\usepackage[T1]{fontenc}
         \\usepackage{fixltx2e}
@@ -405,11 +406,11 @@ typical word processor."
         \\tolerance=1000
         [NO-DEFAULT-PACKAGES]
         [NO-PACKAGES]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}"))))
 
 
 
