@@ -452,10 +452,11 @@ typical word processor."
   ;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
   (setq org-crypt-key "6DF1ABB0"))
 
-
+;; create ppt
 (after-load 'org
   (maybe-require-package 'ox-ioslide))
 
+;; generate mind map
 (after-load 'org
   (maybe-require-package 'org-mind-map))
 
