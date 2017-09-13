@@ -459,19 +459,23 @@ typical word processor."
     "Take a screenshot into a unique-named file in the current buffer file
  directory and insert a link to this file."
     (interactive)
+    (org-display-inline-images)
+
+    (setq filename (concat (format-time-string "%Y%m%d_%H%M%S") ".png"))
     (setq folder (concat (file-name-directory (buffer-file-name)) "images/"))
-    (setq file-path (concat (make-temp-name folder) ".png"))
+    (setq file-path (concat folder filename))
 
     (if (file-accessible-directory-p folder)
         nil
       (make-directory "images"))
 
-    (call-process-shell-command "scrot" nil nil nil nil " -s " (concat
-                                                                "\"" file-path "\"" ))
-    (insert (concat "[[" (concat "./images/" (file-name-base file-path) ".png") "]]"))
-    (org-display-inline-images))
+    (when (executable-find "scrot")
+      (call-process-shell-command "scrot" nil nil nil " -s " (concat
+                                                              "\"" file-path "\"" )))
 
-  (global-set-key (kbd "C-c M-s") 'jiarenlu/org-screenshot))
+    (insert (concat "[[" (concat "./images/" filename) "]]")))
+
+  (define-key org-mode-map (kbd "C-c s c") 'jiarenlu/org-screenshot))
 
 ;; create ppt
 (after-load 'org
