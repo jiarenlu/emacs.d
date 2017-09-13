@@ -453,6 +453,26 @@ typical word processor."
   ;; 可以設定任何 ID 或是設成 nil 來使用對稱式加密 (symmetric encryption)
   (setq org-crypt-key "6DF1ABB0"))
 
+
+(after-load 'org
+  (defun my-org-screenshot ()
+    "Take a screenshot into a unique-named file in the current buffer file
+ directory and insert a link to this file."
+    (interactive)
+    (setq folder (concat (file-name-directory (buffer-file-name)) "images/"))
+    (setq file-path (concat (make-temp-name folder) ".png"))
+
+    (if (file-accessible-directory-p folder)
+        nil
+      (make-directory "images"))
+
+    (call-process-shell-command "scrot" nil nil nil nil " -s " (concat
+                                                                "\"" file-path "\"" ))
+    (insert (concat "[[" (concat "./images/" (file-name-base file-path) ".png") "]]"))
+    (org-display-inline-images))
+
+  (global-set-key (kbd "C-c M-s") 'my-org-screenshot))
+
 ;; create ppt
 (after-load 'org
   (maybe-require-package 'ox-ioslide))
