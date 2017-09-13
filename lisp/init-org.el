@@ -455,7 +455,7 @@ typical word processor."
 
 
 (after-load 'org
-  (defun my-org-screenshot ()
+  (defun jiarenlu/org-screenshot ()
     "Take a screenshot into a unique-named file in the current buffer file
  directory and insert a link to this file."
     (interactive)
@@ -471,7 +471,7 @@ typical word processor."
     (insert (concat "[[" (concat "./images/" (file-name-base file-path) ".png") "]]"))
     (org-display-inline-images))
 
-  (global-set-key (kbd "C-c M-s") 'my-org-screenshot))
+  (global-set-key (kbd "C-c M-s") 'jiarenlu/org-screenshot))
 
 ;; create ppt
 (after-load 'org
