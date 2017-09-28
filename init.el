@@ -134,10 +134,11 @@
 (require 'init-yasnippet)
 (require 'init-emmet)
 (require 'init-latex)
-(require 'init-personal)
 (require 'init-dict)
 (require 'init-erc)
 (require 'init-emojify)
+(require 'init-neotree)
+(require 'init-personal)
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
