@@ -1,5 +1,9 @@
 (when (maybe-require-package 'neotree)
   (setq neo-smart-open t)
+  ;; neotree icons setting
+  ;; (when (maybe-require-package 'all-the-icons)
+  ;;   (setq neo-theme (if (display-graphic-p) 'icons 'arrow)))
+
   (when (maybe-require-package 'projectile)
     (after-load 'projectile
       (defun neotree-project-dir ()
