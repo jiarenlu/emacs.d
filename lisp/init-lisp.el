@@ -22,8 +22,8 @@
 (after-load 'lisp-mode
   (define-key emacs-lisp-mode-map (kbd "C-x C-e") 'sanityinc/eval-last-sexp-or-region))
 
-(require-package 'ipretty)
-(ipretty-mode 1)
+(when (maybe-require-package 'ipretty)
+  (ipretty-mode 1))
 
 
 (defadvice pp-display-expression (after sanityinc/make-read-only (expression out-buffer-name) activate)
@@ -122,10 +122,6 @@
 ;; ----------------------------------------------------------------------------
 ;; Enable desired features for all lisp modes
 ;; ----------------------------------------------------------------------------
-(require-package 'redshank)
-(after-load 'redshank
-  (diminish 'redshank-mode))
-
 (defun sanityinc/enable-check-parens-on-save ()
   "Run `check-parens' when the current buffer is saved."
   (add-hook 'after-save-hook #'check-parens nil t))
@@ -137,7 +133,6 @@
 (defvar sanityinc/lispy-modes-hook
   '(enable-paredit-mode
     turn-on-eldoc-mode
-    redshank-mode
     sanityinc/disable-indent-guide
     sanityinc/enable-check-parens-on-save)
   "Hook run in all Lisp modes.")

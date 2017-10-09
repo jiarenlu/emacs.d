@@ -45,6 +45,12 @@
 (setq-default
  ring-bell-function 'sanityinc/flash-mode-line)
 
+
+
+(when (maybe-require-package 'beacon)
+  (setq-default beacon-lighter "")
+  (beacon-mode))
+
 
 
 ;;; Newline behaviour
@@ -60,10 +66,8 @@
 
 
 
-(when (eval-when-compile (string< "24.3.1" emacs-version))
-  ;; https://github.com/purcell/emacs.d/issues/138
-  (after-load 'subword
-    (diminish 'subword-mode)))
+(after-load 'subword
+  (diminish 'subword-mode))
 
 
 
