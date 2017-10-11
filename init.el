@@ -136,6 +136,7 @@
 (require 'init-erc)
 (require 'init-emojify)
 (require 'init-neotree)
+;; (require 'init-treemacs)
 (require 'init-personal)
 ;; Extra packages which don't require any configuration
 

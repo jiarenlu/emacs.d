@@ -390,6 +390,8 @@ typical word processor."
 ;; org-latex
 (after-load 'org
   (require 'ox-latex)
+  (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
+                                "xelatex -interaction nonstopmode %f"))
   (add-to-list 'org-latex-classes
                '("ctexart"
                  "\\documentclass[UTF8]{ctexart}
@@ -402,7 +404,7 @@ typical word processor."
         \\usepackage{longtable}
         \\usepackage{wrapfig}
         \\usepackage{rotating}
-         \\usepackage[colorlinks=true]{hyperref}
+        \\usepackage[colorlinks=true]{hyperref}
         \\tolerance=1000
         [NO-DEFAULT-PACKAGES]
         [NO-PACKAGES]"
