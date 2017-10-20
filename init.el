@@ -135,6 +135,7 @@
 (require 'init-dict)
 (require 'init-erc)
 (require 'init-emojify)
+(require 'init-puml)
 (require 'init-neotree)
 ;; (require 'init-treemacs)
 (require 'init-personal)
