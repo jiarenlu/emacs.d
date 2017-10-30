@@ -18,7 +18,14 @@
 (setq erc-autojoin-channels-alist
       '(("freenode.net" "#lisp" "#opensuse-cn" "#fedora-zh" "#emacs")))
 
-
-
+(after-load 'company-c-headers
+  (setq  company-c-headers-path-system '("/usr/include/"
+                                         "/usr/local/include/"
+                                         "/usr/include/c++/4.8/"
+                                         "/usr/include/c++/4.8/x86_64-suse-linux"
+                                         "/usr/include/c++/4.8/backward"
+                                         "/usr/lib64/gcc/x86_64-suse-linux/4.8/include"
+                                         "/usr/lib64/gcc/x86_64-suse-linux/4.8/include-fixed"
+                                         "/usr/lib64/gcc/x86_64-suse-linux/4.8/../../../../x86_64-suse-linux/include")))
 
 (provide 'init-local)
