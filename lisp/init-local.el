@@ -19,7 +19,8 @@
       '(("freenode.net" "#lisp" "#opensuse-cn" "#fedora-zh" "#emacs")))
 
 (after-load 'company-c-headers
-  (setq  company-c-headers-path-system '("/usr/include/"
+  (setq  company-c-headers-path-system '("."
+                                         "/usr/include/"
                                          "/usr/local/include/"
                                          "/usr/include/c++/4.8/"
                                          "/usr/include/c++/4.8/x86_64-suse-linux"
