@@ -36,7 +36,8 @@
     ;; the environment variable `WORKON_HOME` points to the right place
     (add-hook 'projectile-after-switch-project-hook
               '(lambda ()
-                 (venv-workon (projectile-project-name))))
+                 (when (eq major-mode 'python-mode)
+                   (venv-workon (projectile-project-name)))))
     ))
 
 
