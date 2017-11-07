@@ -27,19 +27,18 @@
 
   (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
 
-  (when (executable-find "virtualenv")
-    (when (maybe-require-package 'virtualenvwrapper)
+  (when (maybe-require-package 'virtualenvwrapper)
 
-      (venv-initialize-interactive-shells) ;; if you want interactive shell support
-      (venv-initialize-eshell) ;; if you want eshell support
-      ;; note that setting `venv-location` is not necessary if you
-      ;; use the default location (`~/.virtualenvs`), or if the
-      ;; the environment variable `WORKON_HOME` points to the right place
-      (setq projectile-switch-project-action
-            '(lambda ()
-               (venv-projectile-auto-workon)
-               (projectile-find-file)))
-      )))
+    (venv-initialize-interactive-shells) ;; if you want interactive shell support
+    (venv-initialize-eshell) ;; if you want eshell support
+    ;; note that setting `venv-location` is not necessary if you
+    ;; use the default location (`~/.virtualenvs`), or if the
+    ;; the environment variable `WORKON_HOME` points to the right place
+    (setq projectile-switch-project-action
+          '(lambda ()
+             (venv-projectile-auto-workon)
+             (projectile-find-file)))
+    ))
 
 
 
