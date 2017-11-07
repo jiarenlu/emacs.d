@@ -14,5 +14,40 @@
       (add-hook 'python-mode-hook
                 (lambda () (sanityinc/local-push-company-backend 'company-anaconda))))))
 
+(after-load 'python
+
+  (require 'pyenv-mode)
+
+  (defun projectile-pyenv-mode-set ()
+    "Set pyenv version matching project name."
+    (let ((project (projectile-project-name)))
+      (if (member project (pyenv-mode-versions))
+          (pyenv-mode-set project)
+        (pyenv-mode-unset))))
+
+  (add-hook 'projectile-switch-project-hook 'projectile-pyenv-mode-set)
+
+  (when (executable-find "virtualenv")
+    (when (maybe-require-package 'virtualenvwrapper)
+
+      (venv-initialize-interactive-shells) ;; if you want interactive shell support
+      (venv-initialize-eshell) ;; if you want eshell support
+      ;; note that setting `venv-location` is not necessary if you
+      ;; use the default location (`~/.virtualenvs`), or if the
+      ;; the environment variable `WORKON_HOME` points to the right place
+      (setq projectile-switch-project-action
+            '(lambda ()
+               (venv-projectile-auto-workon)
+               (projectile-find-file)))
+      )))
+
+
+
+
+
+
+
+
+
 
 (provide 'init-python-mode)
