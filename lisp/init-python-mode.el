@@ -34,10 +34,9 @@
     ;; note that setting `venv-location` is not necessary if you
     ;; use the default location (`~/.virtualenvs`), or if the
     ;; the environment variable `WORKON_HOME` points to the right place
-    (setq projectile-switch-project-action
-          '(lambda ()
-             (venv-projectile-auto-workon)
-             (projectile-find-file)))
+    (add-hook 'projectile-after-switch-project-hook
+              '(lambda ()
+                 (venv-workon (projectile-project-name))))
     ))
 
 
