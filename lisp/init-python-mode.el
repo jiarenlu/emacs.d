@@ -16,7 +16,7 @@
 
 (after-load 'python
 
-  (require 'pyenv-mode)
+  (require-package 'pyenv-mode)
 
   (defun projectile-pyenv-mode-set ()
     "Set pyenv version matching project name."
