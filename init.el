@@ -14,7 +14,16 @@
 
 (defconst *spell-check-support-enabled* t) ;; Enable with t if you prefer
 (defconst *is-a-mac* (eq system-type 'darwin))
-
+(setq *win64* (eq system-type 'windows-nt) )
+(setq *cygwin* (eq system-type 'cygwin) )
+(setq *linux* (or (eq system-type 'gnu/linux) (eq system-type 'linux)) )
+(setq *unix* (or *linux* (eq system-type 'usg-unix-v) (eq system-type 'berkeley-unix)) )
+(setq *emacs24* (and (not (featurep 'xemacs)) (or (>= emacs-major-version 24))) )
+(setq *no-memory* (cond
+                   (*is-a-mac*
+                    (< (string-to-number (nth 1 (split-string (shell-command-to-string "sysctl hw.physmem")))) 4000000000))
+                   (*linux* nil)
+                   (t nil)))
 ;;----------------------------------------------------------------------------
 ;; Adjust garbage collection thresholds during startup, and thereafter
 ;;----------------------------------------------------------------------------
@@ -125,6 +134,8 @@
 
 ;; user config
 (require 'init-search)
+;; web-mode
+(require 'init-web-mode)
 ;; cc and gtags
 (require 'init-cc-mode)
 ;;(require 'init-gud)
