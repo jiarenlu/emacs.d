@@ -52,9 +52,9 @@
 (put 'rjsx-mode 'flyspell-mode-predicate 'js-flyspell-verify)
 ;; }}
 
-(eval-after-load 'flyspell
+(after-load 'flyspell
   '(progn
-     (require 'flyspell-lazy)
+     (require-package 'flyspell-lazy)
      (flyspell-lazy-mode 1)))
 
 ;; better performance

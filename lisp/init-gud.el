@@ -51,10 +51,10 @@
        ))
     ))
 
-(eval-after-load 'gud
-                 '(progn
-                    (gud-def gud-kill "kill" "\C-k" "Kill the debugee")
-                    ))
+(after-load 'gud
+  '(progn
+     (gud-def gud-kill "kill" "\C-k" "Kill the debugee")
+     ))
 
 (defun gud-kill-yes ()
   "gud-kill and confirm with y"

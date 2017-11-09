@@ -54,7 +54,7 @@
 
 (add-hook 'web-mode-hook 'web-mode-hook-setup)
 
-(eval-after-load 'web-mode
+(after-load 'web-mode
   '(progn
      ;; make org-mode export fail, I use evil and evil-matchit
      ;; to select text, so expand-region.el is not used
