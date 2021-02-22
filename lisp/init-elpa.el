@@ -63,6 +63,14 @@ locate PACKAGE."
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+;; use-package
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(unless (package-installed-p 'use-package)
+  (package-install 'use-package))
+(require 'use-package)
+
 
 ;; package.el updates the saved version of package-selected-packages correctly only
 ;; after custom-file has been loaded, which is a bug. We work around this by adding
